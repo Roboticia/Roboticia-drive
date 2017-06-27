@@ -18,7 +18,7 @@ setup(name='roboticia-drive',
       version=version(),
       packages=find_packages(),
 
-      install_requires=['pypot >= 3.0', 'hampy'],
+      install_requires=['pypot >= 3.0', 'hampy','rplidar-roboticia'],
 
       setup_requires=['setuptools_git >= 0.3', ],
 

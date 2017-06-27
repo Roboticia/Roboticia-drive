@@ -1,11 +1,17 @@
 from pypot.creatures import AbstractPoppyCreature
 
+from .sensor import RPLidarA2
+
 class RoboticiaDrive(AbstractPoppyCreature):
     @classmethod
     def setup(cls, robot):
         for m in robot.motors:
             m.goto_behavior = 'dummy'
             m.moving_speed = 0
+            
+        sensor = RPLidarA2('RPLidar', 'normal')
+        robot._sensors.append(sensor)
+        setattr(robot, sensor.name, sensor)
 
         if robot.simulated:
             cls.vrep_hack(robot)
