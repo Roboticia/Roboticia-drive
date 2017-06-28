@@ -99,3 +99,12 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+#notebook save
+*.ipynb_checkpoints
+
+#notebook for local test
+test_*
+
+#folder with construction files or too big files 
+*_nogit*

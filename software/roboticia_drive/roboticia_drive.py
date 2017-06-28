@@ -1,6 +1,6 @@
 from pypot.creatures import AbstractPoppyCreature
 
-from .sensor import RPLidarA2
+from .sensor import RPLidarA2, VoiceRecognition
 
 class RoboticiaDrive(AbstractPoppyCreature):
     @classmethod
@@ -9,9 +9,13 @@ class RoboticiaDrive(AbstractPoppyCreature):
             m.goto_behavior = 'dummy'
             m.moving_speed = 0
             
-        sensor = RPLidarA2('RPLidar', 'normal')
-        robot._sensors.append(sensor)
-        setattr(robot, sensor.name, sensor)
+        sensor1 = RPLidarA2('RPLidar', 'normal')
+        robot._sensors.append(sensor1)
+        setattr(robot, sensor1.name, sensor1)
+        
+        sensor2 = VoiceRecognition('speech')
+        robot._sensors.append(sensor2)
+        setattr(robot, sensor2.name, sensor2)
 
         if robot.simulated:
             cls.vrep_hack(robot)
