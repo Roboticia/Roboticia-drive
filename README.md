@@ -1,5 +1,5 @@
 # Roboticia-drive
-An vehicle with different sensor. A lidar (RPLidar A2) to scan the surrounding and to make SLAM. A voice recognition and synthesis to be understood by your robot with voice. A camera to improve the percetion of the environnement (colors, shape and face recognition).
+An vehicle with different sensors. A lidar (RPLidar A2) to scan the surrounding and to make SLAM. A voice recognition and synthesis to be understood by the robot with voice. A camera to improve the percetion of the environnement (colors, shape and face recognition).
 It can be 3D printed and laser cutted. It works with Dynamixel XL-320 motors, and a Raspberry Pi for control.
 
 
