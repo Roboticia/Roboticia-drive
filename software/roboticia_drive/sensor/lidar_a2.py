@@ -50,6 +50,9 @@ class RPLidarA2(Sensor):
     
     def close(self):
         self.running = False
-        self._processing.join()
+        try:
+            self._processing.join()
+        except AttributeError :
+            pass
         self._lidar.stop()
         self._lidar.stop_motor()
