@@ -16,7 +16,7 @@ class RPLidarA2(Sensor):
         Sensor.__init__(self, name)
 
         self._lidar = RPLidar('/dev/ttyUSB0')
-        self._mode = mode
+        self.mode = mode
         self._last_scan = []
         self.running = False
         
@@ -30,10 +30,7 @@ class RPLidarA2(Sensor):
     def scan(self):
         return (self._timestamp, self._last_scan)
     
-    @property
-    def mode(self):
-        return self._mode
-    
+       
     @property
     def mesures(self):
         return len(self._last_scan)
@@ -51,7 +48,7 @@ class RPLidarA2(Sensor):
         self.running = True
         self._processing.start()
     
-    def stop(self):
+    def close(self):
         self.running = False
         self._processing.join()
         self._lidar.stop()

@@ -63,7 +63,7 @@ class VoiceRecognition(Sensor):
         else :
             logger.warning('Backround VoiceRecognition already start')
         
-    def stop(self):
+    def close(self):
         if self.running :
             self.stop_listening()
             self.running = False

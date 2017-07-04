@@ -1,6 +1,10 @@
 from pypot.creatures import AbstractPoppyCreature
 
 from .sensor import RPLidarA2, VoiceRecognition
+from subprocess import call
+
+def speak(phrase):
+    call(["roboticia-speak.py", phrase])
 
 class RoboticiaDrive(AbstractPoppyCreature):
     @classmethod
@@ -16,6 +20,8 @@ class RoboticiaDrive(AbstractPoppyCreature):
         sensor2 = VoiceRecognition('speech')
         robot._sensors.append(sensor2)
         setattr(robot, sensor2.name, sensor2)
+        
+        robot.speak = speak
 
         if robot.simulated:
             cls.vrep_hack(robot)
@@ -24,7 +30,7 @@ class RoboticiaDrive(AbstractPoppyCreature):
     @classmethod
     def vrep_hack(cls, robot):
         # fix vrep orientation bug
-        wrong_motor = [robot.m3, robot.m2]
+        wrong_motor = []
         
         for m in wrong_motor:
             m.direct = not m.direct
