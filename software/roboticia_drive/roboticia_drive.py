@@ -4,7 +4,7 @@ from .sensor import RPLidarA2, VoiceRecognition
 from subprocess import call
 
 def speak(phrase):
-    call(["roboticia-speak.py", phrase])
+    call(["roboticia-speak.sh", phrase])
 
 class RoboticiaDrive(AbstractPoppyCreature):
     @classmethod
@@ -13,7 +13,7 @@ class RoboticiaDrive(AbstractPoppyCreature):
             m.goto_behavior = 'dummy'
             m.moving_speed = 0
             
-        sensor1 = RPLidarA2('RPLidar', 'normal')
+        sensor1 = RPLidarA2('lidar', 'normal')
         robot._sensors.append(sensor1)
         setattr(robot, sensor1.name, sensor1)
         

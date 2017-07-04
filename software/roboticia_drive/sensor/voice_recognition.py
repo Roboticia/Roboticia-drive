@@ -12,7 +12,7 @@ import speech_recognition as sr
 
 logger = logging.getLogger(__name__)
 
-from _no_git_credential import GOOGLE_CLOUD_SPEECH_CREDENTIALS
+from ._nogit_credential import GOOGLE_CLOUD_SPEECH_CREDENTIALS
 
 class VoiceRecognition(Sensor):
     """
