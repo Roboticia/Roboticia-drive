@@ -12,6 +12,7 @@ class RoboticiaDrive(AbstractPoppyCreature):
         for m in robot.motors:
             m.goto_behavior = 'dummy'
             m.moving_speed = 0
+            m.pid = (6.0,10.0,0.0)
             
         sensor1 = RPLidarA2('lidar', 'normal')
         robot._sensors.append(sensor1)
@@ -22,6 +23,8 @@ class RoboticiaDrive(AbstractPoppyCreature):
         setattr(robot, sensor2.name, sensor2)
         
         robot.speak = speak
+        
+        
 
         if robot.simulated:
             cls.vrep_hack(robot)
